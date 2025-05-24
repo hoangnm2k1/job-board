@@ -35,8 +35,12 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        Job::factory(100)->create();
-
+        User::factory()->create(
+            [
+                'name' => 'Admin',
+                'email' => 'admin@localhost.com',
+            ]
+        );
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
