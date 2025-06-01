@@ -30,11 +30,15 @@ class Job extends Model
 
     public function hasUerApplied(Authenticatable|User|int $user): bool
     {
-        return $this->where('id', $this->id)
-            ->whereHas(
-                'jobApplications',
-                fn ($query) => $query->where('user_id', $user->id ?? $user)
-            )->exists();
+        // return $this->where('id', $this->id)
+        //     ->whereHas(
+        //         'jobApplications',
+        //         fn ($query) => $query->where('user_id', $user->id ?? $user)
+        //     )->exists();
+
+        return $this->jobApplications()
+            ->where('user_id', $user->id ?? $user)
+            ->exists();
     }
 
     public function scopeFilter(QueryBuilder|Builder $query, array $filters): QueryBuilder|Builder
