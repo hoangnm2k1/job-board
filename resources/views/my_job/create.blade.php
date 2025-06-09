@@ -1,5 +1,5 @@
 <x-layout>
-    <x-breadcrumbs :links="['My Jobs' => route('my-jobs.index'), 'Create' => '#']" class="mb-4" />
+    <x-breadcrumbs :links="['My Jobs' => route('my-jobs.index'), 'Create' => '#']" class="mb-4" />More actions
 
     <x-card class="mb-8">
         <form action="{{ route('my-jobs.store') }}" method="POST">
@@ -29,9 +29,9 @@
                 <div>
                     <x-label for="experience" :required="true">Experience</x-label>
                     <x-radio-group name="experience" :value="old('experience')" :all-option="false" :options="array_combine(
-                        array_map('ucfirst', \App\Models\Job::$experience),
-                        \App\Models\Job::$experience,
-                    )" />
+                  array_map('ucfirst', \App\Models\Job::$experience),
+                  \App\Models\Job::$experience,
+              )" />
                     {{-- create an array like ['Entry' => 'entry', 'Intermediate' => 'intermediate', 'Senior' =>
                     'senior'] --}}
                 </div>
@@ -42,7 +42,7 @@
                         :options="\App\Models\Job::$category" />
                 </div>
 
-                <div class="col-span-2">More actions
+                <div class="col-span-2">
                     <x-button class="w-full">Create Job</x-button>
                 </div>
             </div>
