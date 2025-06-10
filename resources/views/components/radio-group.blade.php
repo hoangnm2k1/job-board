@@ -12,4 +12,10 @@
         <span class="ml-2">{{ Str::ucfirst($option) }}</span>
     </label>
     @endforeach
+
+    @error($name)
+    <div class="mt01 text-xs text-red-500">
+        {{ $message }}
+    </div>
+    @enderror
 </div>
