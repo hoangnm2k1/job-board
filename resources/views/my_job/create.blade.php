@@ -1,5 +1,5 @@
 <x-layout>
-    <x-breadcrumbs :links="['My Jobs' => route('my-jobs.index'), 'Create' => '#']" class="mb-4" />More actions
+    <x-breadcrumbs :links="['My Jobs' => route('my-jobs.index'), 'Create' => '#']" class="mb-4" />
 
     <x-card class="mb-8">
         <form action="{{ route('my-jobs.store') }}" method="POST">
