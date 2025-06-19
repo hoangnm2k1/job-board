@@ -15,9 +15,6 @@
                     <div>
                         Applied {{ $application->created_at->diffForHumans() }}
                     </div>
-                    <div>
-                        Download CV
-                    </div>
                 </div>
 
                 <div>${{ number_format($application->expected_salary) }}</div>
@@ -33,6 +30,8 @@
                     @method('DELETE')
                     <x-button>Delete</x-button>
                 </form>
+                <x-link-button href="{{ route('job-applications.download-cv', $application) }}">
+                    Download CV</x-link-button>
             </div>
         </div>
     </x-job-card>

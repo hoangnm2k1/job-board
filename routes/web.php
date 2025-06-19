@@ -32,15 +32,13 @@ Route::delete('logout', fn() => to_route('auth.destroy'))->name('logout');
 Route::delete('auth', [AuthController::class, 'destroy'])->name('auth.destroy');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('job.application', JobApplicationController::class)
-        ->only(['create', 'store']);
+    Route::resource('job.application', JobApplicationController::class)->only(['create', 'store']);
 
-    Route::resource('my-job-application', MyJobApplicationController::class)
-        ->only(['index', 'destroy']);
+    Route::resource('my-job-application', MyJobApplicationController::class)->only(['index', 'destroy']);
 
-    Route::resource('employer', EmployerController::class)
-        ->only(['create', 'store']);
+    Route::resource('employer', EmployerController::class)->only(['create', 'store']);
 
-    Route::middleware('employer')
-        ->resource('my-jobs', MyJobController::class);
+    Route::middleware('employer')->resource('my-jobs', MyJobController::class);
+
+    Route::get('/job-applications/{application}/download-cv', [JobApplicationController::class, 'downloadCV'])->name('job-applications.download-cv');
 });
